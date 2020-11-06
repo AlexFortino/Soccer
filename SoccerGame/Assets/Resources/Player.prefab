@@ -140,7 +140,7 @@ BoxCollider:
   m_GameObject: {fileID: 106802927384445343}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 0.5, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 106802927030277066}
   - component: {fileID: 767105231}
   - component: {fileID: 767105230}
+  - component: {fileID: 193387475}
   m_Layer: 8
   m_Name: Pawn
   m_TagString: Untagged
@@ -404,6 +405,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7937229586192459103}
   anim: {fileID: 106802927735086075}
+  ball: {fileID: 0}
+  isKicking: 0
 --- !u!114 &767105231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +445,19 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!65 &193387475
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226792069256825202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0578356, y: 0.6056733, z: 0.2880596}
+  m_Center: {x: 0.0019097328, y: -0.6391649, z: 0.73547715}
 --- !u!1 &5033433031389348426
 GameObject:
   m_ObjectHideFlags: 0

@@ -1346,11 +1346,11 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
+    m_Type: 1
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
@@ -1396,13 +1396,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.40820706, y: -0.2346025, z: 0.10926489, w: 0.87543696}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.995003, y: -30.013, z: -0.020000001}
 --- !u!1 &740467989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,17 +3428,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767105231, guid: 7353729ffbbddf449a1db7df93b8da8f, type: 3}
       propertyPath: viewIdField
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3887064508627493616, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}
       propertyPath: viewIdField
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5881507008892083168, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881507008892083168, guid: 7353729ffbbddf449a1db7df93b8da8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7837598554939341054, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}

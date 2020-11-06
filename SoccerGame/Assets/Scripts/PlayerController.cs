@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Rendering;
+
 public class PlayerController : MonoBehaviourPun
 {
     public Pawn player;
@@ -15,11 +17,16 @@ public class PlayerController : MonoBehaviourPun
     Vector2 Movement = new Vector2 (0, 0);
 
     public Animator anim;
+
+    public GameObject ball;
+
+    public bool isKicking = false;
     // Start is called before the first frame update
     void Start()
     {
         //player = GetComponent<Pawn>();
         MainCamera = Camera.main;
+        ball = GameObject.FindGameObjectWithTag("Ball");
     }
 
     // Update is called once per frame
@@ -129,14 +136,28 @@ public class PlayerController : MonoBehaviourPun
 
     public void Kick()
     {
+        if (isKicking)
+        {
+            ball.transform.Translate(Vector3.forward * Time.deltaTime * 10 * 0.5f);
+
+        }
         KickState ks = KickState.Dribble;
         
         anim.SetBool("HeavyKick", false);
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0))
         {
             ks = KickState.LightKick;
+            if (ball.transform.parent != null && isKicking == false)
+            {
+                isKicking = true;
+                Invoke("CoolDown", 2f);
+               
+               // ball.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+            }
+            ball.transform.parent = null;
+
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetMouseButtonDown(1))
         {
             anim.SetBool("IsRunning", false);
             anim.SetBool("HeavyKick", true);
@@ -144,5 +165,28 @@ public class PlayerController : MonoBehaviourPun
             
         }
         player.Kick(ks);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Ball")
+        {
+            ball.transform.parent = transform;
+
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.transform.tag == "Ball")
+        {
+            ball.transform.parent = null;
+
+        }
+    }
+
+    public void CoolDown()
+    {
+        isKicking = false;
     }
 }

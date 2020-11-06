@@ -18,10 +18,13 @@ public class Shoes : MonoBehaviour
 
     void Update()
     {
+        /*
         if (isKicking == true) {
             Debug.Log("kick");
             ball.gameObject.transform.Translate(Vector3.forward * 10.15f * Time.deltaTime);
            }
+        */
+
     }
 
     void coolDown()
