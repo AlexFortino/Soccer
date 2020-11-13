@@ -19,6 +19,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void Connect()
     {
+        
         if (PhotonNetwork.IsConnected == true)
         {
             PhotonNetwork.JoinRandomRoom();

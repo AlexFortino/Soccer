@@ -38,11 +38,12 @@ public class PlayerController : MonoBehaviourPun
         }else
         {
          TurnOnCamera();
+         MovePlayer();
+         RotateMouse();
+         Kick();
         }
 
-        MovePlayer();
-        RotateMouse();
-        Kick();
+
     }
 
     public void TurnOnCamera()
@@ -64,27 +65,17 @@ public class PlayerController : MonoBehaviourPun
             isSprinting = false;
         }
 
-        if (anim.GetBool("IsIdle") == true)
-        {
+
             if (Movement.magnitude > 0.2f)
             {
                 anim.SetBool("IsRunning", true);
                 anim.SetBool("IsIdle", false);
-            }
-        }
-        else if (anim.GetBool("IsRunning") == true)
-        {
-            if (Movement.magnitude < 0.9f)
-            {
+
+            }else { 
                 anim.SetBool("IsRunning", false);
                 anim.SetBool("IsIdle", true);
-
             }
-        }else if(anim.GetBool("IsRunning") == false && anim.GetBool("IsIdle") == false)
-        {
-            anim.SetBool("IsRunning", false);
-            anim.SetBool("IsIdle", true);
-        }
+        
 
         /*
         if (Movement.magnitude > 0.9f && anim.GetBool("HeavyKick") == false)
@@ -138,40 +129,48 @@ public class PlayerController : MonoBehaviourPun
     {
         if (isKicking)
         {
+           
             ball.transform.Translate(Vector3.forward * Time.deltaTime * 10 * 0.5f);
+            //ball.transform.parent = transform;
 
         }
         KickState ks = KickState.Dribble;
         
         anim.SetBool("HeavyKick", false);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             ks = KickState.LightKick;
-            if (ball.transform.parent != null && isKicking == false)
+            if (ball.transform.parent != null && isKicking == false && ball.transform.parent == transform)
             {
+
                 isKicking = true;
+                ball.transform.eulerAngles = transform.eulerAngles;
                 Invoke("CoolDown", 2f);
-               
-               // ball.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+                anim.SetBool("IsRunning", false);
+                anim.SetBool("IsIdle", false);
+                anim.SetBool("HeavyKick", true);
+                // ball.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
             }
             ball.transform.parent = null;
 
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            anim.SetBool("IsRunning", false);
-            anim.SetBool("HeavyKick", true);
-            ks = KickState.HeavyKick;
+
+            //ks = KickState.HeavyKick;
             
+
         }
-        player.Kick(ks);
+      //  player.Kick(ks);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Ball")
         {
+            Debug.Log("Ball Entered");
             ball.transform.parent = transform;
+            Debug.Log("Ball Parented");
 
         }
     }
@@ -180,6 +179,7 @@ public class PlayerController : MonoBehaviourPun
     {
         if (collision.transform.tag == "Ball")
         {
+            Debug.Log("Ball Exited");
             ball.transform.parent = null;
 
         }
@@ -188,5 +188,6 @@ public class PlayerController : MonoBehaviourPun
     public void CoolDown()
     {
         isKicking = false;
+        
     }
 }

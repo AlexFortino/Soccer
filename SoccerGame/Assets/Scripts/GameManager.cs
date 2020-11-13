@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameClock gameClock;
     public Score awayScore;
     public Score homeScore;
+    public int numberOfPlayers = 0;
     [HideInInspector]
     int aScore = 0;
     [HideInInspector]
@@ -36,11 +37,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         if (homePlayer != null){
-            PhotonNetwork.Instantiate(homePlayer.name, new Vector3(0, 5, 0), Quaternion.identity, 0);
+            // PhotonNetwork.Instantiate(homePlayer.name, new Vector3(0, 5, 0), Quaternion.identity, 0);
+            CheckPlayers();
+            Debug.Log(numberOfPlayers);
+
+            SpawnPlayers();
         }
 
         awayGoal = GameObject.Find("/Field/Field Lines/Away Goal/Trigger").GetComponent<Goal>();
         homeGoal = GameObject.Find("/Field/Field Lines/Home Goal/Trigger").GetComponent<Goal>();
+
 
         awayGoal.GoalScored += Goal;
         homeGoal.GoalScored += Goal;
@@ -48,6 +54,44 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void CheckPlayers()
+    {
+        numberOfPlayers = PhotonNetwork.CountOfPlayers;
+        // 
+    }
+
+    public void SpawnPlayers()
+    {
+        switch (numberOfPlayers)
+        {
+            case 1:
+                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                //numberOfPlayers = 2;
+                break;
+            case 2:
+                PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0);
+                //PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+              //  numberOfPlayers = 3;
+                break;
+            case 3:
+                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                numberOfPlayers = 4;
+                break;
+            case 4:
+                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0);
+                numberOfPlayers = 1;
+                break;
+            default:
+                Debug.Log("UHH TOO MANY PLAYERS");
+                break;
+        }
     }
 
     // Update is called once per frame

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658095, g: 0.49641454, b: 0.57481813, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,6 +122,97 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &25682529
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4298064663712988560, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: viewIdField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437324, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_Name
+      value: Soccer Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437324, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437329, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845546676407437329, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4298064663712988562, guid: 0a76baa97429ea3479547d1027c61f66, type: 3}
+    - {fileID: 5845546676407437329, guid: 0a76baa97429ea3479547d1027c61f66, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0a76baa97429ea3479547d1027c61f66, type: 3}
 --- !u!1 &44990006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0872c606d6e22c64baded8a0f3cc604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTimer: 60
+  gameTimer: 499
   gameClock: {fileID: 133561166}
   awayScore: {fileID: 549124225}
   homeScore: {fileID: 1676927722}
@@ -1351,8 +1442,8 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NormalBias: 0
+    m_NearPlane: 5.32
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -1388,7 +1479,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 63.6
 --- !u!4 &705507995
 Transform:
   m_ObjectHideFlags: 0
@@ -3428,22 +3519,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767105231, guid: 7353729ffbbddf449a1db7df93b8da8f, type: 3}
       propertyPath: viewIdField
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3887064508627493616, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}
       propertyPath: viewIdField
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5881507008892083168, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}
       propertyPath: m_Name
       value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5881507008892083168, guid: 7353729ffbbddf449a1db7df93b8da8f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7837598554939341054, guid: 7353729ffbbddf449a1db7df93b8da8f,
         type: 3}
@@ -3976,6 +4062,16 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4298064663712988563, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891379155780988437, guid: 0a76baa97429ea3479547d1027c61f66,
+        type: 3}
+      propertyPath: m_RotationModel.SynchronizeEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5845546676407437324, guid: 0a76baa97429ea3479547d1027c61f66,
         type: 3}
       propertyPath: m_Name
@@ -4034,16 +4130,6 @@ PrefabInstance:
     - target: {fileID: 5845546676407437328, guid: 0a76baa97429ea3479547d1027c61f66,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5845546676407437329, guid: 0a76baa97429ea3479547d1027c61f66,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5845546676407437329, guid: 0a76baa97429ea3479547d1027c61f66,
-        type: 3}
-      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
