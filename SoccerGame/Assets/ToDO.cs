@@ -1,6 +1,6 @@
 ﻿/*
    Critical:
-   - Player Scoring (Resetting Field)
+   - Sync UIs
    - Ball Movement (Rotation)
 
     Not So Critical:

@@ -1304,6 +1304,7 @@ MonoBehaviour:
   gameClock: {fileID: 133561166}
   awayScore: {fileID: 549124225}
   homeScore: {fileID: 1676927722}
+  numberOfPlayers: 0
   awayStart: {fileID: 557407271}
   homeStart: {fileID: 620825908}
   ballStart: {fileID: 786265299}
@@ -1314,6 +1315,7 @@ MonoBehaviour:
     type: 3}
   awayPlayer: {fileID: 8489076764568093084, guid: 72203cd7fad4f0a4fb9cb65ecf9bb880,
     type: 3}
+  players: []
 --- !u!4 &641479035
 Transform:
   m_ObjectHideFlags: 0
@@ -2705,6 +2707,7 @@ GameObject:
   - component: {fileID: 1511070466}
   - component: {fileID: 1511070465}
   - component: {fileID: 1511070464}
+  - component: {fileID: 1511070468}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -2794,6 +2797,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1511070468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511070463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1601149422
 GameObject:
   m_ObjectHideFlags: 0

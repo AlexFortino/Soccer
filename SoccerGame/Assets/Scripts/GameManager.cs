@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject homePlayer;
     public GameObject awayPlayer;
 
+    public List<GameObject> players = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,17 +63,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         numberOfPlayers = PhotonNetwork.CountOfPlayers;
         // 
     }
-
+    //PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
     public void SpawnPlayers()
     {
         switch (numberOfPlayers)
         {
             case 1:
-                PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
+                players.Add((GameObject)PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0));
+                //PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
                 //numberOfPlayers = 2;
+                Debug.Log(players[0].name);
                 break;
             case 2:
-                PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0);
+                players.Add((GameObject)PhotonNetwork.Instantiate(homePlayer.name, awayStart.position, Quaternion.identity, 0));
                 //PhotonNetwork.Instantiate(homePlayer.name, homeStart.position, Quaternion.identity, 0);
               //  numberOfPlayers = 3;
                 break;
@@ -109,6 +113,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene("Menu");
+    }
+    
+    public void Scored()
+    {
+
     }
 
     public void LeaveRoom() {
@@ -168,6 +177,31 @@ public class GameManager : MonoBehaviourPunCallbacks
         ai = GameObject.FindGameObjectWithTag("AI");
         ball = GameObject.FindGameObjectWithTag("Ball");
 
+
+
+        players[0].transform.position = homeStart.position;
+        players[0].GetComponentInChildren<PlayerController>().StopKick();
+
+        if (players.Count == 2)
+        {
+            players[1].transform.position = awayStart.position;
+            players[1].GetComponentInChildren<PlayerController>().StopKick();
+        }
+        if (players.Count == 3)
+
+        {
+            players[2].transform.position = homeStart.position;
+            players[2].GetComponentInChildren<PlayerController>().StopKick();
+        }
+        if (players.Count == 4)
+        {
+            players[3].transform.position = awayStart.position;
+            players[3].GetComponentInChildren<PlayerController>().StopKick();
+        }
+
+            ball.transform.position = ballStart.position;
+
+        /*
         Destroy(player);
         Destroy(ai);
         Destroy(ball);
@@ -175,8 +209,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         player = Instantiate(homePlayer, homeStart.position, Quaternion.identity);
         ai = Instantiate(awayPlayer, awayStart.position, Quaternion.identity);
         ball = Instantiate(soccerBall, ballStart.position, Quaternion.identity);
-
+        
         playerController.player = player.GetComponentInChildren<Pawn>();
+        */
+
     }
 
     void GameOver()

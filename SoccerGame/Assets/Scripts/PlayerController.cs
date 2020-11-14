@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviourPun
         {
            
             ball.transform.Translate(Vector3.forward * Time.deltaTime * 10 * 0.5f);
+            
             //ball.transform.parent = transform;
 
         }
@@ -162,6 +163,11 @@ public class PlayerController : MonoBehaviourPun
 
         }
       //  player.Kick(ks);
+    }
+
+    public void StopKick()
+    {
+        isKicking = false;
     }
 
     private void OnCollisionEnter(Collision collision)
