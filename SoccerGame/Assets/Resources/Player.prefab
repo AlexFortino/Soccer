@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 8024786659511338149}
+  - component: {fileID: 2091433467}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -98,6 +99,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   boomLength: {x: 0, y: 10, z: -10}
+--- !u!114 &2091433467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 963194228}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &106802927384445343
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +450,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &106802927030277066
 MonoBehaviour:
@@ -406,6 +467,8 @@ MonoBehaviour:
   player: {fileID: 7937229586192459103}
   anim: {fileID: 106802927735086075}
   ball: {fileID: 0}
+  ballPosition: {x: 0, y: 0, z: 0}
+  isOwned: 0
   isKicking: 0
 --- !u!114 &767105231
 MonoBehaviour:
@@ -456,8 +519,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0578356, y: 0.6056733, z: 0.2880596}
-  m_Center: {x: 0.0019097328, y: -0.6391649, z: 0.73547715}
+  m_Size: {x: 1.1372528, y: 0.6056733, z: 2.0829725}
+  m_Center: {x: -0.017692566, y: -0.6391649, z: 0.39016992}
 --- !u!1 &5033433031389348426
 GameObject:
   m_ObjectHideFlags: 0

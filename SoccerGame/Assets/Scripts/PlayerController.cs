@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviourPun
     public Animator anim;
 
     public GameObject ball;
+    public Vector3 ballPosition = new Vector3(0,0,0);
+
+    public bool isOwned = false;
 
     public bool isKicking = false;
     // Start is called before the first frame update
@@ -127,7 +130,26 @@ public class PlayerController : MonoBehaviourPun
 
     public void Kick()
     {
-        if (isKicking)
+
+        if (isOwned == true && isKicking == false)
+        {
+            if (Movement.magnitude < 0.1)
+            {
+                ballPosition = ball.transform.position;// = transform.position + new Vector3(Movement.x, -0.75f, Movement.y);
+            }
+            else {
+                ballPosition = ball.transform.position = transform.position + new Vector3(Movement.x, -0.75f, Movement.y);
+
+            }
+           
+        }
+        
+        if (Mathf.Abs(ballPosition.magnitude - ball.transform.position.magnitude) >= 0.5f)
+        {
+            isOwned = false;
+        }
+
+        if (isKicking && isOwned == false)
         {
            
             ball.transform.Translate(Vector3.forward * Time.deltaTime * 10 * 0.5f);
@@ -141,9 +163,9 @@ public class PlayerController : MonoBehaviourPun
         if (Input.GetMouseButtonDown(1))
         {
             ks = KickState.LightKick;
-            if (ball.transform.parent != null && isKicking == false && ball.transform.parent == transform)
+            if (isOwned == true && isKicking == false) // && ball.transform.parent == transform)
             {
-
+                isOwned = false;
                 isKicking = true;
                 ball.transform.eulerAngles = transform.eulerAngles;
                 Invoke("CoolDown", 2f);
@@ -174,19 +196,22 @@ public class PlayerController : MonoBehaviourPun
     {
         if (collision.transform.tag == "Ball")
         {
+            isOwned = true;
             Debug.Log("Ball Entered");
-            ball.transform.parent = transform;
-            Debug.Log("Ball Parented");
+          //  ball.transform.parent = transform;
+         //   Debug.Log("Ball Parented");
 
         }
     }
+
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.transform.tag == "Ball")
         {
+           // isOwned = false;
             Debug.Log("Ball Exited");
-            ball.transform.parent = null;
+           // ball.transform.parent = null;
 
         }
     }
